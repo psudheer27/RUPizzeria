@@ -13,4 +13,16 @@ public abstract class Pizza {
         this.crust = crust;
         this.size = size;
     }
+
+    public ArrayList<Topping> getToppings(){
+        return toppings;
+    }
+
+    public Crust getCrust(){
+        return crust;
+    }
+
+    public Size getSize(){
+        return size;
+    }
 }
