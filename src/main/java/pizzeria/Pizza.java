@@ -1,5 +1,7 @@
 package pizzeria;
 
+import java.util.ArrayList;
+
 public abstract class Pizza {
     private ArrayList<Topping> toppings;
     private Crust crust;
@@ -8,7 +10,7 @@ public abstract class Pizza {
 
     public Pizza() {
         this.toppings = new ArrayList<Topping>();
-        this.crust = Crust.REGULAR;
-        this.size = Size.MEDIUM;
+        this.crust = crust;
+        this.size = size;
     }
 }
