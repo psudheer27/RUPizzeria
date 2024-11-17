@@ -18,6 +18,10 @@ public abstract class Pizza {
         this.crust = crust;
     }
 
+    public void setSize(Size size){
+        this.size = size;
+    }
+
     public Size getSize(){
         return this.size;
     }
