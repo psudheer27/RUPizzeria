@@ -55,13 +55,11 @@ public class ChicagoStyleController {
             ObservableList<String> listItems = FXCollections.observableArrayList("Sausage", "Pepperoni", "Green Pepper", "Onion", "Mushroom", "BBQ Chicken", "Provolone", "Cheddar", "Beef", "Ham", "Jalapenos", "Olives", "BananaPepper");
             availableToppingsChicagoStyle.setItems(listItems);
             selectedToppingsChicagoStyle.getItems().clear();
-
             if(!pizzaType.getValue().equals("Build Your Own")){
                 availableToppingsChicagoStyle.setDisable(true);
                 backwardsChicago.setDisable(true);
                 forwardsChicago.setDisable(true);
                 availableToppingsChicagoStyle.setStyle("-fx-background-color: lightgrey");
-
                 if(pizzaType.getValue().equals("Deluxe")){
                     ObservableList<String> deluxeToppings = FXCollections.observableArrayList("Sausage", "Pepperoni", "Green Pepper", "Onion", "Mushroom");
                     selectedToppingsChicagoStyle.setItems(deluxeToppings);

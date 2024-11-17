@@ -55,13 +55,11 @@ public class NYPizzaController {
             ObservableList<String> listItems = FXCollections.observableArrayList("Sausage", "Pepperoni", "Green Pepper", "Onion", "Mushroom", "BBQ Chicken", "Provolone", "Cheddar", "Beef", "Ham", "Jalapenos", "Olives", "BananaPepper");
             availableToppingsNYStyle.setItems(listItems);
             selectedToppingsNYStyle.getItems().clear();
-
             if(!pizzaType.getValue().equals("Build Your Own")){
                 availableToppingsNYStyle.setDisable(true);
                 backwardsNY.setDisable(true);
                 forwardsNY.setDisable(true);
                 availableToppingsNYStyle.setStyle("-fx-background-color: lightgrey");
-
                 if(pizzaType.getValue().equals("Deluxe")){
                     ObservableList<String> deluxeToppings = FXCollections.observableArrayList("Sausage", "Pepperoni", "Green Pepper", "Onion", "Mushroom");
                     selectedToppingsNYStyle.setItems(deluxeToppings);
