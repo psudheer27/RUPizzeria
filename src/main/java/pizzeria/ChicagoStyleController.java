@@ -19,6 +19,7 @@ public class ChicagoStyleController {
     public void initialize() {
         ObservableList<String> listItems = FXCollections.observableArrayList("Sausage", "Pepperoni", "Green Pepper", "Onion", "Mushroom", "BBQChicken", "Provolone", "Cheddar", "Beef", "Ham", "Jalapenos", "Olives", "BananaPepper");
         availableToppings = new ListView<>(listItems);
+        availableToppings.setItems(listItems);
     }
 
 
@@ -33,8 +34,5 @@ public class ChicagoStyleController {
 
     }
 
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
-    }
+
 }

@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller = "pizzeria.ChicagoStyleController">
+<BorderPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pizzeria.ChicagoStyleController">
    <center>
       <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="506.0" prefWidth="539.0">
         <columnConstraints>
@@ -76,7 +76,7 @@
                      <padding>
                         <Insets left="10.0" />
                      </padding></Label>
-                  <ListView prefHeight="256.0" prefWidth="261.0">
+                  <ListView fx:id="availableToppings" prefHeight="256.0" prefWidth="261.0">
                      <VBox.margin>
                         <Insets left="10.0" />
                      </VBox.margin></ListView>
