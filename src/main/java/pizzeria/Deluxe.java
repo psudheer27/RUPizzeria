@@ -12,6 +12,11 @@ public class Deluxe extends Pizza{
 
     @Override
     public double price() {
-        return 0;
+        return switch (getSize()) {
+            case Small -> 16.99;
+            case Medium -> 18.99;
+            case Large -> 20.99;
+            default -> throw new IllegalStateException("Invalid Size!");
+        };
     }
 }

@@ -11,6 +11,11 @@ public class BBQChicken extends Pizza{
 
     @Override
     public double price() {
-        return 0;
+        return switch (getSize()) {
+            case Small -> 14.99;
+            case Medium -> 16.99;
+            case Large -> 19.99;
+            default -> throw new IllegalStateException("Invalid Size!");
+        };
     }
 }
