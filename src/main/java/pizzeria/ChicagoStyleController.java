@@ -5,6 +5,9 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
+import java.text.DecimalFormat;
+
+
 public class ChicagoStyleController {
     @FXML
     private ListView<String> availableToppingsChicagoStyle, selectedToppingsChicagoStyle;
@@ -108,26 +111,29 @@ public class ChicagoStyleController {
                 }
             }
             buildPizza();
-            System.out.println(size);
         });
     }
 
     @FXML
     private void buildPizza(){
-
         pizza.getToppings().clear();
         for(String topping : selectedToppingsChicagoStyle.getItems()){
             pizza.addTopping(Topping.valueOf(topping.replace(" ", "")));
         }
         pizza.setSize(size);
-        priceField.setText(String.valueOf(pizza.price()));
+        DecimalFormat df = new DecimalFormat("#.##");
+        priceField.setText(String.valueOf(df.format(pizza.price())));
         crustField.setText(pizza.getCrust().name());
+
+        if(pizzaType.getValue().equals("Deluxe")){
+
+        }
     }
 
     @FXML
     private void onForwards() {
         String selectedItem = availableToppingsChicagoStyle.getSelectionModel().getSelectedItem();
-        if(selectedItem != null) {
+        if(selectedItem != null && selectedToppingsChicagoStyle.getItems().size() < 7) {
             selectedToppingsChicagoStyle.getItems().add(selectedItem);
             availableToppingsChicagoStyle.getItems().remove(selectedItem);
             buildPizza();

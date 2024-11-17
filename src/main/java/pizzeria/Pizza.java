@@ -10,8 +10,6 @@ public abstract class Pizza {
 
     public Pizza() {
         this.toppings = new ArrayList<Topping>();
-        this.crust = crust;
-        this.size = size;
     }
 
     public void setCrust(Crust crust){

@@ -5,6 +5,8 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
+import java.text.DecimalFormat;
+
 public class NYPizzaController {
 
     @FXML
@@ -108,7 +110,6 @@ public class NYPizzaController {
                 }
             }
             buildPizza();
-            System.out.println(size);
         });
     }
 
@@ -120,14 +121,15 @@ public class NYPizzaController {
             pizza.addTopping(Topping.valueOf(topping.replace(" ", "")));
         }
         pizza.setSize(size);
-        priceField.setText(String.valueOf(pizza.price()));
+        DecimalFormat df = new DecimalFormat("#.##");
+        priceField.setText(String.valueOf(df.format(pizza.price())));
         crustField.setText(pizza.getCrust().name());
     }
 
     @FXML
     private void onForwards() {
         String selectedItem = availableToppingsNYStyle.getSelectionModel().getSelectedItem();
-        if(selectedItem != null) {
+        if(selectedItem != null && selectedToppingsNYStyle.getItems().size() < 7) {
             selectedToppingsNYStyle.getItems().add(selectedItem);
             availableToppingsNYStyle.getItems().remove(selectedItem);
             buildPizza();
