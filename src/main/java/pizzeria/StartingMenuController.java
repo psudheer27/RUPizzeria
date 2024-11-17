@@ -20,18 +20,26 @@ public class StartingMenuController {
 
     @FXML
     private void openChicagoStyle() throws IOException {
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource(".fxml"));
-//
-//        Stage stage = new Stage();
-//        stage.setScene(new Scene(loader.load()));
-//
-//        stage.setTitle("Scene 2");
-//
-//        stage.show();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("chicagoStyle.fxml"));
+
+        Stage stage = new Stage();
+        stage.setScene(new Scene(loader.load()));
+
+        stage.setTitle("Chicago Style");
+
+        stage.show();
 
     }
     @FXML
-    private void openNYStyle() {
+    private void openNYStyle() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ny-pizza-view.fxml"));
+
+        Stage stage = new Stage();
+        stage.setScene(new Scene(loader.load()));
+
+        stage.setTitle("NY Style");
+
+        stage.show();
 
     }
     @FXML
