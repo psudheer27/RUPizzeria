@@ -12,24 +12,31 @@ public class NYPizzaController {
     private Label welcomeText;
 
     @FXML
-    private ListView<String> availableToppings, selectedToppings;
-    private Button backwards, forwards;
+    private ListView<String> availableToppingsNYStyle, selectedToppingsNYStyle;
+
+    @FXML
+    private Button backwardsNY, forwardsNY;
 
     @FXML
     public void initialize() {
         ObservableList<String> listItems = FXCollections.observableArrayList("Sausage", "Pepperoni", "GreenPepper", "Onion", "Mushroom", "BBQChicken", "Provolone", "Cheddar", "Beef", "Ham", "Jalapenos", "Olives", "BananaPepper");
-        availableToppings = new ListView<>(listItems);
+        availableToppingsNYStyle = new ListView<>(listItems);
+        System.out.println("HELLO");
     }
 
 
     @FXML
     private void onForwards() {
-        String selectedItem = availableToppings.getSelectionModel().getSelectedItem();
-        selectedToppings.getItems().add(selectedItem);
+        String selectedItem = selectedToppingsNYStyle.getSelectionModel().getSelectedItem();
+        selectedToppingsNYStyle.getItems().add(selectedItem);
+        availableToppingsNYStyle.getItems().remove(selectedItem);
+
     }
 
     @FXML
     private void onBackwards() {
-
+        String selectedItem = availableToppingsNYStyle.getSelectionModel().getSelectedItem();
+        selectedToppingsNYStyle.getItems().remove(selectedItem);
+        availableToppingsNYStyle.getItems().add(selectedItem);
     }
 }

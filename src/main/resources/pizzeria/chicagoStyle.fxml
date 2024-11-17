@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller = "pizzeria.ChicagoStyleController">
+<BorderPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pizzeria.ChicagoStyleController">
    <center>
       <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="506.0" prefWidth="539.0">
         <columnConstraints>
@@ -76,7 +76,7 @@
                      <padding>
                         <Insets left="10.0" />
                      </padding></Label>
-                  <ListView prefHeight="256.0" prefWidth="261.0">
+                  <ListView fx:id="availableToppingsChicagoStyle" prefHeight="256.0" prefWidth="261.0">
                      <VBox.margin>
                         <Insets left="10.0" />
                      </VBox.margin></ListView>
@@ -92,7 +92,7 @@
             <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <children>
                   <Label alignment="CENTER" prefHeight="17.0" prefWidth="107.0" text="Selected Toppings" textAlignment="CENTER" />
-                  <ListView prefHeight="243.0" prefWidth="213.0">
+                  <ListView fx:id="selectedToppingsChicagoStyle" prefHeight="243.0" prefWidth="213.0">
                      <VBox.margin>
                         <Insets right="10.0" />
                      </VBox.margin></ListView>
@@ -100,8 +100,8 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="41.0" text="&gt;&gt;" />
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="41.0" text="&lt;&lt;">
+                  <Button fx:id="forwardsChicago" mnemonicParsing="false" onAction="#onForwards" prefHeight="25.0" prefWidth="41.0" text="&gt;&gt;" />
+                  <Button fx:id="backwardsChicago" mnemonicParsing="false" onAction="#onBackwards" prefHeight="25.0" prefWidth="41.0" text="&lt;&lt;">
                      <VBox.margin>
                         <Insets top="20.0" />
                      </VBox.margin>
