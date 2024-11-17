@@ -14,15 +14,15 @@ public abstract class Pizza {
         this.size = size;
     }
 
-    public ArrayList<Topping> getToppings(){
-        return toppings;
+    public void setCrust(Crust crust){
+        this.crust = crust;
     }
 
-    public Crust getCrust(){
-        return crust;
+    public void setSize(Size size){
+        this.size = size;
     }
 
-    public Size getSize(){
-        return size;
+    public void addTopping(Topping topping){
+        toppings.add(topping);
     }
 }

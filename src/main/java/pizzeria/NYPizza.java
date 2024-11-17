@@ -2,15 +2,23 @@ package pizzeria;
 
 public class NYPizza implements PizzaFactory{
     public Pizza createDeluxe() {
-        return null;
+        Pizza pizza = new Deluxe();
+        pizza.setCrust(Crust.Brooklyn);
+        return pizza;
     }
     public Pizza createMeatzza() {
-        return null;
+        Pizza pizza = new Meatzza();
+        pizza.setCrust(Crust.HandTossed);
+        return pizza;
     }
     public Pizza createBBQChicken() {
-        return null;
+        Pizza pizza = new BBQChicken();
+        pizza.setCrust(Crust.Thin);
+        return pizza;
     }
     public Pizza createBuildYourOwn() {
-        return  null;
+        Pizza pizza = new BuildYourOwn();
+        pizza.setCrust(Crust.HandTossed);
+        return pizza;
     }
 }
