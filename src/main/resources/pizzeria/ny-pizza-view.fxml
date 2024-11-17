@@ -76,7 +76,7 @@
                             <padding>
                                 <Insets left="10.0" />
                             </padding></Label>
-                        <ListView prefHeight="256.0" prefWidth="261.0">
+                        <ListView fx:id="availableToppingsNYStyle" prefHeight="256.0" prefWidth="261.0">
                             <VBox.margin>
                                 <Insets left="10.0" />
                             </VBox.margin></ListView>
@@ -92,7 +92,7 @@
                 <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                     <children>
                         <Label alignment="CENTER" prefHeight="17.0" prefWidth="107.0" text="Selected Toppings" textAlignment="CENTER" />
-                        <ListView prefHeight="243.0" prefWidth="213.0">
+                        <ListView fx:id="selectedToppingsNYStyle" prefHeight="243.0" prefWidth="213.0">
                             <VBox.margin>
                                 <Insets right="10.0" />
                             </VBox.margin></ListView>
@@ -100,8 +100,8 @@
                 </VBox>
                 <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                     <children>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="41.0" text="&gt;&gt;" />
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="41.0" text="&lt;&lt;">
+                        <Button fx:id="forwardsNY" mnemonicParsing="false" prefHeight="25.0" prefWidth="41.0" text="&gt;&gt;" />
+                        <Button fx:id="backwardsNY" mnemonicParsing="false" prefHeight="25.0" prefWidth="41.0" text="&lt;&lt;">
                             <VBox.margin>
                                 <Insets top="20.0" />
                             </VBox.margin>
@@ -114,7 +114,7 @@
     <top>
         <VBox alignment="CENTER" prefHeight="59.0" prefWidth="539.0" BorderPane.alignment="CENTER">
             <children>
-                <Label alignment="CENTER" contentDisplay="CENTER" text="Chicago Style Pizza" textAlignment="CENTER">
+                <Label alignment="CENTER" contentDisplay="CENTER" text="NY Style Pizza" textAlignment="CENTER">
                     <font>
                         <Font name="System Bold" size="24.0" />
                     </font>

@@ -12,27 +12,30 @@ public class ChicagoStyleController {
     private Label welcomeText;
 
     @FXML
-    private ListView<String> availableToppings, selectedToppings;
-    private Button backwards, forwards;
+    private ListView<String> availableToppingsChicagoStyle, selectedToppingsChicagoStyle;
+
+    @FXML
+    private Button backwardsChicago, forwardsChicago;
 
     @FXML
     public void initialize() {
-        ObservableList<String> listItems = FXCollections.observableArrayList("Sausage", "Pepperoni", "Green Pepper", "Onion", "Mushroom", "BBQChicken", "Provolone", "Cheddar", "Beef", "Ham", "Jalapenos", "Olives", "BananaPepper");
-        availableToppings = new ListView<>(listItems);
-        availableToppings.setItems(listItems);
+        ObservableList<String> listItems = FXCollections.observableArrayList("Sausage", "Pepperoni", "GreenPepper", "Onion", "Mushroom", "BBQChicken", "Provolone", "Cheddar", "Beef", "Ham", "Jalapenos", "Olives", "BananaPepper");
+        availableToppingsChicagoStyle.setItems(listItems);
     }
 
 
     @FXML
     private void onForwards() {
-        String selectedItem = availableToppings.getSelectionModel().getSelectedItem();
-        selectedToppings.getItems().add(selectedItem);
+        String selectedItem = availableToppingsChicagoStyle.getSelectionModel().getSelectedItem();
+        selectedToppingsChicagoStyle.getItems().add(selectedItem);
+        availableToppingsChicagoStyle.getItems().remove(selectedItem);
+
     }
 
     @FXML
     private void onBackwards() {
-
+        String selectedItem = selectedToppingsChicagoStyle.getSelectionModel().getSelectedItem();
+        selectedToppingsChicagoStyle.getItems().remove(selectedItem);
+        availableToppingsChicagoStyle.getItems().add(selectedItem);
     }
-
-
 }
