@@ -33,23 +33,23 @@
             <ImageView fitHeight="168.0" fitWidth="227.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" />
             <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <children>
-                  <ComboBox prefHeight="34.0" prefWidth="183.0" promptText="Choose Pizza Type">
+                  <ComboBox fx:id="pizzaType" onAction="#buildPizza" prefHeight="34.0" prefWidth="183.0" promptText="Choose Pizza Type">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets></ComboBox>
                   <HBox alignment="CENTER" prefHeight="107.0" prefWidth="261.0">
                      <children>
-                        <RadioButton mnemonicParsing="false" selected="true" text="Small">
+                        <RadioButton fx:id="small" mnemonicParsing="false" selected="true" text="Small">
                            <HBox.margin>
                               <Insets right="20.0" />
                            </HBox.margin>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="Medium">
+                        <RadioButton fx:id="medium" mnemonicParsing="false" text="Medium">
                            <HBox.margin>
                               <Insets right="20.0" />
                            </HBox.margin>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="Large" />
+                        <RadioButton fx:id="large" mnemonicParsing="false" text="Large" />
                      </children>
                      <opaqueInsets>
                         <Insets top="20.0" />
@@ -62,7 +62,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextField editable="false" />
+                        <TextField fx:id="crustField" editable="false" />
                      </children>
                   </HBox>
                </children>
@@ -85,7 +85,7 @@
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="75.0" text="Pizza Price $" textAlignment="CENTER" />
-                  <TextField editable="false" />
+                  <TextField fx:id="priceField" editable="false" />
                </children>
             </HBox>
             <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="205.0" text="Add to Order" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
