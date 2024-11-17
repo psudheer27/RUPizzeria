@@ -3,7 +3,7 @@ package pizzeria;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class HelloController {
+public class ChicagoStyleController {
     @FXML
     private Label welcomeText;
 
