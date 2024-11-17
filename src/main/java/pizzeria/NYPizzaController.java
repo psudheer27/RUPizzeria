@@ -28,15 +28,29 @@ public class NYPizzaController {
     @FXML
     private void onForwards() {
         String selectedItem = selectedToppingsNYStyle.getSelectionModel().getSelectedItem();
-        selectedToppingsNYStyle.getItems().add(selectedItem);
-        availableToppingsNYStyle.getItems().remove(selectedItem);
+        if(selectedToppingsNYStyle.getItems().size() == 7) {
+            System.out.println("Over 7");
+        }
+
+        if(selectedItem != null){
+            selectedToppingsNYStyle.getItems().add(selectedItem);
+            availableToppingsNYStyle.getItems().remove(selectedItem);
+
+        }
+
+
+
 
     }
 
     @FXML
     private void onBackwards() {
         String selectedItem = availableToppingsNYStyle.getSelectionModel().getSelectedItem();
-        selectedToppingsNYStyle.getItems().remove(selectedItem);
-        availableToppingsNYStyle.getItems().add(selectedItem);
+
+        if(selectedItem != null){
+            selectedToppingsNYStyle.getItems().remove(selectedItem);
+            availableToppingsNYStyle.getItems().add(selectedItem);
+        }
+
     }
 }
