@@ -20,11 +20,11 @@
        <Text style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-fill: #3385ff;" text="RU Pizza Main Menu" GridPane.columnSpan="2" GridPane.halignment="center" />
 
 
-         <Button style="-fx-background-color: transparent;" GridPane.columnIndex="0" GridPane.rowIndex="1">
+         <Button fx:id="chicagoStyleButton" onAction="#openChicagoStyle" style="-fx-background-color: transparent;" GridPane.columnIndex="0" GridPane.rowIndex="1">
             <graphic>
                 <VBox alignment="center" spacing="10">
                     <ImageView fitHeight="150" fitWidth="150">
-                        <Image url="@../../../../chicagoStyle.jpeg" />
+                        <Image url="@../chicagoStyle.jpeg" />
                     </ImageView>
                     <Text style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Chicago Style" />
                 </VBox>
@@ -33,11 +33,11 @@
          </Button>
 
        <!-- NY Style Button -->
-       <Button style="-fx-background-color: transparent;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+       <Button fx:id="nyStyleButton" onAction="#openNYStyle" style="-fx-background-color: transparent;" GridPane.columnIndex="1" GridPane.rowIndex="1">
            <graphic>
                <VBox alignment="center" spacing="10">
                    <ImageView fitHeight="150" fitWidth="150">
-                       <Image url="@../../../../NYStyle.jpeg" />
+                       <Image url="@../NYStyle.jpeg" />
                    </ImageView>
                    <Text style="-fx-font-size: 14px; -fx-font-weight: bold;" text="NY Style" />
                </VBox>
@@ -45,11 +45,11 @@
        </Button>
 
        <!-- Orders Placed Button -->
-       <Button style="-fx-background-color: transparent;" GridPane.columnIndex="0" GridPane.rowIndex="2">
+       <Button fx:id="ordersPlacedButton" onAction="#openOrdersPlaced" style="-fx-background-color: transparent;" GridPane.columnIndex="0" GridPane.rowIndex="2">
            <graphic>
                <VBox alignment="center" spacing="10">
                    <ImageView fitHeight="150" fitWidth="150">
-                       <Image url="@../../../../ordersPlaced.png" />
+                       <Image url="@../ordersPlaced.png" />
                    </ImageView>
                    <Text style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Orders Placed" />
                </VBox>
@@ -57,11 +57,11 @@
        </Button>
 
        <!-- Current Order Button -->
-       <Button style="-fx-background-color: transparent;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+       <Button fx:id="currentOrderButton" onAction="#openCurrentOrder" style="-fx-background-color: transparent;" GridPane.columnIndex="1" GridPane.rowIndex="2">
            <graphic>
                <VBox alignment="center" spacing="10">
                    <ImageView fitHeight="150" fitWidth="150">
-                       <Image url="@../../../../currentOrder.png" />
+                       <Image url="@../currentOrder.png" />
                    </ImageView>
                    <Text style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Current Order" />
                </VBox>
