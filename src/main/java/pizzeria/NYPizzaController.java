@@ -61,22 +61,22 @@ public class NYPizzaController {
     private void imageSelection(){
         pizzaType.valueProperty().addListener(e -> {
             if(pizzaType.getValue().equals("Deluxe")){
-                Image image = new Image(getClass().getResource("/nyDeluxe.png").toExternalForm());
+                Image image = new Image(getClass().getResource("/nyDeluxe.jpg").toExternalForm());
                 imageView.setPreserveRatio(true);
                 imageView.setImage(image);
             }
             else if(pizzaType.getValue().equals("Meatzza")){
-                Image image = new Image(getClass().getResource("/nyMeatzza.png").toExternalForm());
+                Image image = new Image(getClass().getResource("/nyMeatzza.jpg").toExternalForm());
                 imageView.setPreserveRatio(true);
                 imageView.setImage(image);
             }
             else if(pizzaType.getValue().equals("BBQ Chicken")){
-                Image image = new Image(getClass().getResource("/nyBBQ.png").toExternalForm());
+                Image image = new Image(getClass().getResource("/nyBBQ.jpg").toExternalForm());
                 imageView.setPreserveRatio(true);
                 imageView.setImage(image);
             }
             else if(pizzaType.getValue().equals("Build Your Own")){
-                Image image = new Image(getClass().getResource("/nyBYO.png").toExternalForm());
+                Image image = new Image(getClass().getResource("/nyBYO.jpg").toExternalForm());
                 imageView.setPreserveRatio(true);
                 imageView.setImage(image);
             }

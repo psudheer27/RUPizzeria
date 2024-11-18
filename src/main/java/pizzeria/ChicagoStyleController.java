@@ -9,7 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.control.TextField;
 
 import javafx.scene.image.ImageView;
-import java.awt.*;
+
 import java.text.DecimalFormat;
 
 
@@ -65,22 +65,22 @@ public class ChicagoStyleController {
     private void imageSelection(){
         pizzaType.valueProperty().addListener(e -> {
             if(pizzaType.getValue().equals("Deluxe")){
-                Image image = new Image(getClass().getResource("/chicagoDeluxe.png").toExternalForm());
+                Image image = new Image(getClass().getResource("/chicagoDeluxe.jpg").toExternalForm());
                 imageView.setPreserveRatio(true);
                 imageView.setImage(image);
             }
             else if(pizzaType.getValue().equals("Meatzza")){
-                Image image = new Image(getClass().getResource("/chicagoMeatzza.png").toExternalForm());
+                Image image = new Image(getClass().getResource("/chicagoMeatzza.jpg").toExternalForm());
                 imageView.setPreserveRatio(true);
                 imageView.setImage(image);
             }
             else if(pizzaType.getValue().equals("BBQ Chicken")){
-                Image image = new Image(getClass().getResource("/chicagoBBQ.png").toExternalForm());
+                Image image = new Image(getClass().getResource("/chicagoBBQ.jpg").toExternalForm());
                 imageView.setPreserveRatio(true);
                 imageView.setImage(image);
             }
             else if(pizzaType.getValue().equals("Build Your Own")){
-                Image image = new Image(getClass().getResource("/chicagoBYO.png").toExternalForm());
+                Image image = new Image(getClass().getResource("/chicagoBYO.jpg").toExternalForm());
                 imageView.setPreserveRatio(true);
                 imageView.setImage(image);
             }
