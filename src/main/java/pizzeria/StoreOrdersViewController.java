@@ -5,13 +5,16 @@ import javafx.scene.control.Label;
 
 public class StoreOrdersViewController {
 
-    public class ChicagoStyleController {
-        @FXML
-        private Label welcomeText;
 
-        @FXML
-        protected void onHelloButtonClick() {
-            welcomeText.setText("Welcome to JavaFX Application!");
-        }
+    @FXML
+    private Label welcomeText;
+
+    private StartingMenuController startingMenuController;
+
+    public void setMainController(StartingMenuController startingMenuController) {
+        this.startingMenuController = startingMenuController;
     }
+
+
+
 }
