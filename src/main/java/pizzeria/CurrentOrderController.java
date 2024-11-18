@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
@@ -12,14 +13,16 @@ import java.text.DecimalFormat;
 public class CurrentOrderController {
 
     @FXML
-    public ListView<Pizza> orderList;
+    private ListView<Pizza> orderList;
 
     @FXML
-    public TextField orderNumberField;
-    public TextField subtotalField;
-    public TextField salesTaxField;
-    public TextField orderTotalField;
+    private TextField orderNumberField;
+    private TextField subtotalField;
+    private TextField salesTaxField;
+    private TextField orderTotalField;
 
+    @FXML
+    private Button placeOrderButton;
 
     private StartingMenuController startingMenuController;
 
@@ -34,19 +37,31 @@ public class CurrentOrderController {
     }
 
     @FXML
-    public void initializing() {
+    private void initializing() {
         orderNumberField.setText("" + startingMenuController.getOrderNumber());
         orderNumberField.setDisable(true);
 
         items = FXCollections.observableArrayList(startingMenuController.getPizzas());
+
+        if(items.isEmpty()){placeOrderButton.setDisable(true);}
+        else{placeOrderButton.setDisable(false);}
+
         orderList.setItems(items);
         setTextFields();
+
+
     }
 
     @FXML
     private void onRemovePizza() {
         startingMenuController.removePizza(orderList.getSelectionModel().getSelectedItem());
         orderList.getItems().remove(orderList.getSelectionModel().getSelectedItem());
+        if(items.isEmpty()){
+            placeOrderButton.setDisable(true);
+        }
+        else{
+            placeOrderButton.setDisable(false);
+        }
         setTextFields();
     }
 
@@ -61,6 +76,7 @@ public class CurrentOrderController {
     private void onClearOrder() {
         startingMenuController.clearPizzas();
         orderList.getItems().clear();
+        placeOrderButton.setDisable(true);
         setTextFields();
     }
 
