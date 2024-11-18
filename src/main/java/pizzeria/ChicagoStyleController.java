@@ -1,5 +1,6 @@
 package pizzeria;
 
+import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -14,6 +15,10 @@ import java.text.DecimalFormat;
 
 
 public class ChicagoStyleController {
+
+    @FXML
+    public Button addToOrderChicago;
+
     @FXML
     private ListView<String> availableToppingsChicagoStyle, selectedToppingsChicagoStyle;
 
@@ -40,9 +45,20 @@ public class ChicagoStyleController {
 
     Size size = Size.Small;
 
+    private StartingMenuController startingMenuController;
+
 
     @FXML
     public void initialize() {
+
+        availableToppingsChicagoStyle.setDisable(true);
+        backwardsChicago.setDisable(true);
+        forwardsChicago.setDisable(true);
+        availableToppingsChicagoStyle.setStyle("-fx-background-color: lightgrey");
+        addToOrderChicago.setDisable(true);
+
+
+
         ObservableList<String> listItems = FXCollections.observableArrayList("Sausage", "Pepperoni", "Green Pepper", "Onion", "Mushroom", "BBQ Chicken", "Provolone", "Cheddar", "Beef", "Ham", "Jalapenos", "Olives", "BananaPepper");
         availableToppingsChicagoStyle.setItems(listItems);
 
@@ -55,6 +71,8 @@ public class ChicagoStyleController {
         large.setToggleGroup(group);
 
         small.setSelected(true);
+
+
 
         sizeSelection();
         imageSelection();
@@ -94,10 +112,7 @@ public class ChicagoStyleController {
             availableToppingsChicagoStyle.setItems(listItems);
             selectedToppingsChicagoStyle.getItems().clear();
             if(!pizzaType.getValue().equals("Build Your Own")){
-                availableToppingsChicagoStyle.setDisable(true);
-                backwardsChicago.setDisable(true);
-                forwardsChicago.setDisable(true);
-                availableToppingsChicagoStyle.setStyle("-fx-background-color: lightgrey");
+                addToOrderChicago.setDisable(false);
                 if(pizzaType.getValue().equals("Deluxe")){
                     ObservableList<String> deluxeToppings = FXCollections.observableArrayList("Sausage", "Pepperoni", "Green Pepper", "Onion", "Mushroom");
                     selectedToppingsChicagoStyle.setItems(deluxeToppings);
@@ -171,8 +186,10 @@ public class ChicagoStyleController {
         if(selectedItem != null && selectedToppingsChicagoStyle.getItems().size() < 7) {
             selectedToppingsChicagoStyle.getItems().add(selectedItem);
             availableToppingsChicagoStyle.getItems().remove(selectedItem);
+            addToOrderChicago.setDisable(false);
             buildPizza();
         }
+
     }
 
     @FXML
@@ -181,7 +198,22 @@ public class ChicagoStyleController {
         if(selectedItem != null) {
             selectedToppingsChicagoStyle.getItems().remove(selectedItem);
             availableToppingsChicagoStyle.getItems().add(selectedItem);
+            if(selectedToppingsChicagoStyle.getItems().isEmpty())
+                addToOrderChicago.setDisable(true);
+
             buildPizza();
         }
     }
+
+
+    public void setMainController(StartingMenuController startingMenuController) {
+        this.startingMenuController = startingMenuController;
+    }
+
+    @FXML
+    public void onAddToOrder() {
+        startingMenuController.addPizza(pizza);
+    }
+
+
 }

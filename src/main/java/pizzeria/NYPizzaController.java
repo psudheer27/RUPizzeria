@@ -12,6 +12,9 @@ import java.text.DecimalFormat;
 public class NYPizzaController {
 
     @FXML
+    public Button addToOrderNY;
+
+    @FXML
     private ListView<String> availableToppingsNYStyle, selectedToppingsNYStyle;
 
     @FXML
@@ -37,8 +40,16 @@ public class NYPizzaController {
 
     Size size = Size.Small;
 
+    private StartingMenuController startingMenuController;
+
     @FXML
     public void initialize() {
+        availableToppingsNYStyle.setDisable(false);
+        backwardsNY.setDisable(true);
+        forwardsNY.setDisable(true);
+        availableToppingsNYStyle.setStyle("-fx-background-color: lightgrey");
+        addToOrderNY.setDisable(true);
+
         ObservableList<String> listItems = FXCollections.observableArrayList("Sausage", "Pepperoni", "Green Pepper", "Onion", "Mushroom", "BBQ Chicken", "Provolone", "Cheddar", "Beef", "Ham", "Jalapenos", "Olives", "BananaPepper");
         availableToppingsNYStyle.setItems(listItems);
 
@@ -90,10 +101,8 @@ public class NYPizzaController {
             availableToppingsNYStyle.setItems(listItems);
             selectedToppingsNYStyle.getItems().clear();
             if(!pizzaType.getValue().equals("Build Your Own")){
-                availableToppingsNYStyle.setDisable(true);
-                backwardsNY.setDisable(true);
-                forwardsNY.setDisable(true);
-                availableToppingsNYStyle.setStyle("-fx-background-color: lightgrey");
+
+                addToOrderNY.setDisable(false);
                 if(pizzaType.getValue().equals("Deluxe")){
                     ObservableList<String> deluxeToppings = FXCollections.observableArrayList("Sausage", "Pepperoni", "Green Pepper", "Onion", "Mushroom");
                     selectedToppingsNYStyle.setItems(deluxeToppings);
@@ -164,6 +173,7 @@ public class NYPizzaController {
         if(selectedItem != null && selectedToppingsNYStyle.getItems().size() < 7) {
             selectedToppingsNYStyle.getItems().add(selectedItem);
             availableToppingsNYStyle.getItems().remove(selectedItem);
+            addToOrderNY.setDisable(false);
             buildPizza();
         }
     }
@@ -174,7 +184,19 @@ public class NYPizzaController {
         if(selectedItem != null) {
             selectedToppingsNYStyle.getItems().remove(selectedItem);
             availableToppingsNYStyle.getItems().add(selectedItem);
+            if(selectedToppingsNYStyle.getItems().isEmpty())
+                addToOrderNY.setDisable(true);
+
             buildPizza();
         }
+    }
+
+    public void setMainController(StartingMenuController startingMenuController) {
+        this.startingMenuController = startingMenuController;
+    }
+
+    @FXML
+    public void onAddToOrder() {
+        startingMenuController.addPizza(pizza);
     }
 }

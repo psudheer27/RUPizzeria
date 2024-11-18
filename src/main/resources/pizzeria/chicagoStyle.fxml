@@ -91,7 +91,7 @@
                   <TextField fx:id="priceField" editable="false" />
                </children>
             </HBox>
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="205.0" text="Add to Order" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+            <Button fx:id="addToOrderChicago" mnemonicParsing="false" onAction="#onAddToOrder" prefHeight="25.0" prefWidth="205.0" text="Add to Order" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
             <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <children>
                   <Label alignment="CENTER" prefHeight="17.0" prefWidth="107.0" text="Selected Toppings" textAlignment="CENTER" />
