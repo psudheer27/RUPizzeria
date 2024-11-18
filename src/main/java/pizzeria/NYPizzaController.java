@@ -4,6 +4,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.text.DecimalFormat;
 
@@ -27,6 +29,9 @@ public class NYPizzaController {
     @FXML
     TextField priceField, crustField;
 
+    @FXML
+    ImageView imageView;
+
     PizzaFactory pizzaFactory = new NYPizza();
     Pizza pizza;
 
@@ -48,7 +53,34 @@ public class NYPizzaController {
         small.setSelected(true);
 
         sizeSelection();
+        imageSelection();
         pizzaSelection();
+    }
+
+    @FXML
+    private void imageSelection(){
+        pizzaType.valueProperty().addListener(e -> {
+            if(pizzaType.getValue().equals("Deluxe")){
+                Image image = new Image(getClass().getResource("/nyDeluxe.png").toExternalForm());
+                imageView.setPreserveRatio(true);
+                imageView.setImage(image);
+            }
+            else if(pizzaType.getValue().equals("Meatzza")){
+                Image image = new Image(getClass().getResource("/nyMeatzza.png").toExternalForm());
+                imageView.setPreserveRatio(true);
+                imageView.setImage(image);
+            }
+            else if(pizzaType.getValue().equals("BBQ Chicken")){
+                Image image = new Image(getClass().getResource("/nyBBQ.png").toExternalForm());
+                imageView.setPreserveRatio(true);
+                imageView.setImage(image);
+            }
+            else if(pizzaType.getValue().equals("Build Your Own")){
+                Image image = new Image(getClass().getResource("/nyBYO.png").toExternalForm());
+                imageView.setPreserveRatio(true);
+                imageView.setImage(image);
+            }
+        });
     }
 
     @FXML
