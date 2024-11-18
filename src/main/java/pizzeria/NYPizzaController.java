@@ -44,7 +44,7 @@ public class NYPizzaController {
 
     @FXML
     public void initialize() {
-        availableToppingsNYStyle.setDisable(false);
+        availableToppingsNYStyle.setDisable(true);
         backwardsNY.setDisable(true);
         forwardsNY.setDisable(true);
         availableToppingsNYStyle.setStyle("-fx-background-color: lightgrey");
@@ -94,14 +94,29 @@ public class NYPizzaController {
         });
     }
 
+    private void disableList(){
+        backwardsNY.setDisable(true);
+        forwardsNY.setDisable(true);
+        availableToppingsNYStyle.setDisable(true);
+        availableToppingsNYStyle.setStyle("-fx-background-color: lightgrey");
+    }
+
+    private void enableList(){
+        availableToppingsNYStyle.setDisable(false);
+        backwardsNY.setDisable(false);
+        forwardsNY.setDisable(false);
+        availableToppingsNYStyle.setStyle("-fx-background-color: white");
+    }
+
     @FXML
     private void pizzaSelection(){
         pizzaType.setOnAction(e -> {
             ObservableList<String> listItems = FXCollections.observableArrayList("Sausage", "Pepperoni", "Green Pepper", "Onion", "Mushroom", "BBQ Chicken", "Provolone", "Cheddar", "Beef", "Ham", "Jalapenos", "Olives", "BananaPepper");
             availableToppingsNYStyle.setItems(listItems);
             selectedToppingsNYStyle.getItems().clear();
-            if(!pizzaType.getValue().equals("Build Your Own")){
+            disableList();
 
+            if(!pizzaType.getValue().equals("Build Your Own")){
                 addToOrderNY.setDisable(false);
                 if(pizzaType.getValue().equals("Deluxe")){
                     ObservableList<String> deluxeToppings = FXCollections.observableArrayList("Sausage", "Pepperoni", "Green Pepper", "Onion", "Mushroom");
@@ -123,10 +138,7 @@ public class NYPizzaController {
                 }
             }
             else{
-                availableToppingsNYStyle.setDisable(false);
-                backwardsNY.setDisable(false);
-                forwardsNY.setDisable(false);
-                availableToppingsNYStyle.setStyle("-fx-background-color: white");
+                enableList();
                 availableToppingsNYStyle.setItems(listItems);
                 selectedToppingsNYStyle.getItems().clear();
                 pizza = pizzaFactory.createBuildYourOwn();
