@@ -105,12 +105,27 @@ public class ChicagoStyleController {
         });
     }
 
+    private void disableList(){
+        backwardsChicago.setDisable(true);
+        forwardsChicago.setDisable(true);
+        availableToppingsChicagoStyle.setDisable(true);
+        availableToppingsChicagoStyle.setStyle("-fx-background-color: lightgrey");
+    }
+
+    private void enableList(){
+        availableToppingsChicagoStyle.setDisable(false);
+        backwardsChicago.setDisable(false);
+        forwardsChicago.setDisable(false);
+        availableToppingsChicagoStyle.setStyle("-fx-background-color: white");
+    }
+
     @FXML
     private void pizzaSelection(){
         pizzaType.setOnAction(e -> {
             ObservableList<String> listItems = FXCollections.observableArrayList("Sausage", "Pepperoni", "Green Pepper", "Onion", "Mushroom", "BBQ Chicken", "Provolone", "Cheddar", "Beef", "Ham", "Jalapenos", "Olives", "BananaPepper");
             availableToppingsChicagoStyle.setItems(listItems);
             selectedToppingsChicagoStyle.getItems().clear();
+            disableList();
             if(!pizzaType.getValue().equals("Build Your Own")){
                 addToOrderChicago.setDisable(false);
                 if(pizzaType.getValue().equals("Deluxe")){
@@ -133,10 +148,7 @@ public class ChicagoStyleController {
                 }
             }
             else{
-                availableToppingsChicagoStyle.setDisable(false);
-                backwardsChicago.setDisable(false);
-                forwardsChicago.setDisable(false);
-                availableToppingsChicagoStyle.setStyle("-fx-background-color: white");
+                enableList();
                 availableToppingsChicagoStyle.setItems(listItems);
                 selectedToppingsChicagoStyle.getItems().clear();
                 pizza = pizzaFactory.createBuildYourOwn();
