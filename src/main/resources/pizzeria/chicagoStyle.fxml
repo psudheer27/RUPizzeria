@@ -30,7 +30,10 @@
           <RowConstraints maxHeight="260.0" minHeight="10.0" prefHeight="77.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ImageView fitHeight="168.0" fitWidth="227.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" />
+            <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="211.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin></ImageView>
             <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <children>
                   <ComboBox fx:id="pizzaType" onAction="#buildPizza" prefHeight="34.0" prefWidth="183.0" promptText="Choose Pizza Type">

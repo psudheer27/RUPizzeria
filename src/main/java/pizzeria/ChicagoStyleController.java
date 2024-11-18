@@ -4,7 +4,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.control.TextField;
 
+import javafx.scene.image.ImageView;
+import java.awt.*;
 import java.text.DecimalFormat;
 
 
@@ -23,6 +28,9 @@ public class ChicagoStyleController {
 
     @FXML
     ComboBox<String> pizzaType = new ComboBox<String>();
+
+    @FXML
+    ImageView imageView;
 
     @FXML
     TextField priceField, crustField;
@@ -49,7 +57,34 @@ public class ChicagoStyleController {
         small.setSelected(true);
 
         sizeSelection();
+        imageSelection();
         pizzaSelection();
+    }
+
+    @FXML
+    private void imageSelection(){
+        pizzaType.valueProperty().addListener(e -> {
+            if(pizzaType.getValue().equals("Deluxe")){
+                Image image = new Image(getClass().getResource("/chicagoDeluxe.png").toExternalForm());
+                imageView.setPreserveRatio(true);
+                imageView.setImage(image);
+            }
+            else if(pizzaType.getValue().equals("Meatzza")){
+                Image image = new Image(getClass().getResource("/chicagoMeatzza.png").toExternalForm());
+                imageView.setPreserveRatio(true);
+                imageView.setImage(image);
+            }
+            else if(pizzaType.getValue().equals("BBQ Chicken")){
+                Image image = new Image(getClass().getResource("/chicagoBBQ.png").toExternalForm());
+                imageView.setPreserveRatio(true);
+                imageView.setImage(image);
+            }
+            else if(pizzaType.getValue().equals("Build Your Own")){
+                Image image = new Image(getClass().getResource("/chicagoBYO.png").toExternalForm());
+                imageView.setPreserveRatio(true);
+                imageView.setImage(image);
+            }
+        });
     }
 
     @FXML
@@ -149,6 +184,4 @@ public class ChicagoStyleController {
             buildPizza();
         }
     }
-
-
 }
