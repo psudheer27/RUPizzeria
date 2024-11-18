@@ -65,9 +65,9 @@
 
             <!-- Action Buttons -->
             <HBox alignment="center" spacing="10">
-                <Button fx:id="removePizzaButton" style="-fx-background-color: #ff6666; -fx-font-weight: bold;" text="Remove Pizza" />
-                <Button fx:id="placeOrderButton" style="-fx-background-color: #3385ff; -fx-text-fill: white; -fx-font-weight: bold;" text="Place Order" />
-                <Button fx:id="clearOrderButton" style="-fx-background-color: #ffcc00; -fx-font-weight: bold;" text="Clear Order" />
+                <Button fx:id="removePizzaButton" onAction="#onRemovePizza" style="-fx-background-color: #ff6666; -fx-font-weight: bold;" text="Remove Pizza" />
+                <Button fx:id="placeOrderButton" onAction="#onPlaceOrder" style="-fx-background-color: #3385ff; -fx-text-fill: white; -fx-font-weight: bold;" text="Place Order" />
+                <Button fx:id="clearOrderButton" onAction="#onClearOrder" style="-fx-background-color: #ffcc00; -fx-font-weight: bold;" text="Clear Order" />
             </HBox>
         </VBox>
     </bottom>

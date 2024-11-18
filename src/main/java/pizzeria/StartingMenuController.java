@@ -18,6 +18,8 @@ public class StartingMenuController {
     private ArrayList<Pizza> pizzas;
     private ArrayList<Order> orders;
 
+    private int orderNumber;
+
 
 
     @FXML
@@ -26,6 +28,7 @@ public class StartingMenuController {
 
     @FXML
     public void initialize() {
+        orderNumber = 1;
         pizzas = new ArrayList<Pizza>();
         orders = new ArrayList<Order>();
     }
@@ -69,6 +72,10 @@ public class StartingMenuController {
         Stage stage = new Stage();
         stage.setScene(new Scene(loader.load()));
 
+        StoreOrdersViewController storeOrdersViewController = loader.getController();
+        storeOrdersViewController.setMainController(this);
+
+
         stage.setTitle("Orders Placed");
 
         stage.show();
@@ -107,10 +114,47 @@ public class StartingMenuController {
     }
 
     public void addPizza(Pizza pizza) {
+
         pizzas.add(pizza);
     }
 
-    public void addPizza(String pizza) {
+    public void clearPizzas() {
+        pizzas.clear();
+    }
 
+    public void removePizza(Pizza pizza) {
+        pizzas.remove(pizza);
+    }
+
+    public void addOrder() {
+
+        ArrayList<Pizza> tempPizzas = new ArrayList<Pizza>(pizzas.size());
+        for(int i = 0; i < pizzas.size(); i++){
+            tempPizzas.add(pizzas.get(i));
+        }
+        Order order = new Order(orderNumber, tempPizzas);
+
+        orders.add(order);
+
+        for(Order currOrder : orders) {
+            System.out.println("start  " + currOrder.getPizza() + "number " + currOrder.getNumber());
+        }
+
+
+
+        pizzas.clear();
+        System.out.println(getPizzas() +"clear");
+        orderNumber++;
+
+
+    }
+
+    public void clearOrders() {
+        orders.clear();
+    }
+
+
+    public int getOrderNumber() {
+        return orderNumber;
     }
 }
