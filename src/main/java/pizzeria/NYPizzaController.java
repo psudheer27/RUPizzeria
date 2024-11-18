@@ -9,6 +9,10 @@ import javafx.scene.image.ImageView;
 
 import java.text.DecimalFormat;
 
+/**
+ * Controller for the New York Style Pizza View.
+ * This class handles the user interactions and updates the view accordingly.
+ */
 public class NYPizzaController {
 
     @FXML
@@ -42,6 +46,10 @@ public class NYPizzaController {
 
     private StartingMenuController startingMenuController;
 
+    /**
+     * Initializes the controller.
+     * Sets up the initial state of the view components and binds event listeners.
+     */
     @FXML
     public void initialize() {
         disableList();
@@ -65,6 +73,9 @@ public class NYPizzaController {
         pizzaSelection();
     }
 
+    /**
+     * Updates the pizza image based on the selected pizza type.
+     */
     @FXML
     private void imageSelection(){
         pizzaType.valueProperty().addListener(e -> {
@@ -91,6 +102,9 @@ public class NYPizzaController {
         });
     }
 
+    /**
+     * Disables the toppings list and navigation buttons.
+     */
     private void disableList(){
         backwardsNY.setDisable(true);
         forwardsNY.setDisable(true);
@@ -98,6 +112,9 @@ public class NYPizzaController {
         availableToppingsNYStyle.setStyle("-fx-background-color: lightgrey");
     }
 
+    /**
+     * Enables the toppings list and navigation buttons.
+     */
     private void enableList(){
         availableToppingsNYStyle.setDisable(false);
         backwardsNY.setDisable(false);
@@ -105,6 +122,9 @@ public class NYPizzaController {
         availableToppingsNYStyle.setStyle("-fx-background-color: white");
     }
 
+    /**
+     * Handles the pizza type selection and updates the view accordingly.
+     */
     @FXML
     private void pizzaSelection(){
         pizzaType.setOnAction(e -> {
@@ -145,6 +165,9 @@ public class NYPizzaController {
         });
     }
 
+    /**
+     * Handles the size selection and updates the pizza size.
+     */
     @FXML
     private void sizeSelection(){
         group.selectedToggleProperty().addListener((observable, oldValue, newValue) -> {
@@ -164,6 +187,10 @@ public class NYPizzaController {
         });
     }
 
+    /**
+     * Builds the pizza based on the selected toppings and size.
+     * Updates the price and crust fields in the view.
+     */
     @FXML
     private void buildPizza(){
 
@@ -177,6 +204,9 @@ public class NYPizzaController {
         crustField.setText(pizza.getCrust().name());
     }
 
+    /**
+     * Moves the selected topping from the available list to the selected list.
+     */
     @FXML
     private void onForwards() {
         String selectedItem = availableToppingsNYStyle.getSelectionModel().getSelectedItem();
@@ -188,6 +218,9 @@ public class NYPizzaController {
         }
     }
 
+    /**
+     * Moves the selected topping from the selected list to the available list.
+     */
     @FXML
     private void onBackwards() {
         String selectedItem = selectedToppingsNYStyle.getSelectionModel().getSelectedItem();
@@ -199,10 +232,18 @@ public class NYPizzaController {
         }
     }
 
+    /**
+     * Sets the main controller.
+     *
+     * @param startingMenuController the main controller
+     */
     public void setMainController(StartingMenuController startingMenuController) {
         this.startingMenuController = startingMenuController;
     }
 
+    /**
+     * Adds the current pizza to the order.
+     */
     @FXML
     public void onAddToOrder() {
         startingMenuController.addPizza(pizza);

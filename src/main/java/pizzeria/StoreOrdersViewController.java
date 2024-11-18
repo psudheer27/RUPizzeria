@@ -12,8 +12,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.text.DecimalFormat;
 
+/**
+ * Controller for the Store Orders View.
+ * This class handles the user interactions and updates the view accordingly.
+ */
 public class StoreOrdersViewController {
-
 
     @FXML
     public ComboBox<String> orderNumberComboBox;
@@ -28,6 +31,12 @@ public class StoreOrdersViewController {
     private ObservableList<Pizza> items;
     private StartingMenuController startingMenuController;
 
+    /**
+     * Sets the main controller.
+     * Initializes the store orders view with the main controller's data.
+     *
+     * @param startingMenuController the main controller
+     */
     public void setMainController(StartingMenuController startingMenuController) {
         this.startingMenuController = startingMenuController;
         cancelOrderButton.setDisable(true);
@@ -38,6 +47,11 @@ public class StoreOrdersViewController {
 
     }
 
+
+    /**
+     * Initializes the store orders view.
+     * Populates the order number combo box and sets up event listeners.
+     */
     public void initializing() {
         for(Order order : startingMenuController.getOrders()) {
             orderNumberComboBox.getItems().add("" + order.getNumber());
@@ -63,6 +77,10 @@ public class StoreOrdersViewController {
 
     }
 
+    /**
+     * Cancels the selected order.
+     * Removes the order from the list and updates the view.
+     */
     @FXML
     private void cancelOrder(){
         orderNumberComboBox.valueProperty().addListener((observable, oldValue, newValue) -> {
@@ -96,6 +114,10 @@ public class StoreOrdersViewController {
         });
     }
 
+    /**
+     * Exports the orders to a text file.
+     * Prompts the user to choose a file location and writes the order details to the file.
+     */
     private void exportOrder() {
         exportOrdersButton.setOnAction(event -> {
             FileChooser fileChooser = new FileChooser();

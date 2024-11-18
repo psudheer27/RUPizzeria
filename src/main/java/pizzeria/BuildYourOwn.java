@@ -1,9 +1,19 @@
 package pizzeria;
 
+/**
+ * Represents a Build Your Own pizza.
+ * This class extends the abstract Pizza class and calculates the price for a Build Your Own pizza based on size and toppings.
+ */
 public class BuildYourOwn extends Pizza{
 
     private static final double TOPPING_PRICE = 1.69;
 
+    /**
+     * Calculates the price of the Build Your Own pizza based on its size and number of toppings.
+     *
+     * @return the price of the pizza
+     * @throws IllegalStateException if the size is invalid or if there are more than 7 toppings
+     */
     @Override
     public double price() {
         if(getToppings().size() <= 7) {

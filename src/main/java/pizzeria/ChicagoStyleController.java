@@ -13,7 +13,10 @@ import javafx.scene.image.ImageView;
 
 import java.text.DecimalFormat;
 
-
+/**
+ * Controller for the Chicago Style Pizza View.
+ * This class handles the user interactions and updates the view accordingly.
+ */
 public class ChicagoStyleController {
 
     @FXML
@@ -47,10 +50,12 @@ public class ChicagoStyleController {
 
     private StartingMenuController startingMenuController;
 
-
+    /**
+     * Initializes the controller.
+     * Sets up the initial state of the view components and binds event listeners.
+     */
     @FXML
     public void initialize() {
-
         disableList();
         addToOrderChicago.setDisable(true);
 
@@ -60,20 +65,20 @@ public class ChicagoStyleController {
         ObservableList<String> pizzaTypes = FXCollections.observableArrayList("Deluxe", "Meatzza", "BBQ Chicken", "Build Your Own");
         pizzaType.setItems(pizzaTypes);
 
-
         small.setToggleGroup(group);
         medium.setToggleGroup(group);
         large.setToggleGroup(group);
 
         small.setSelected(true);
 
-
-
         sizeSelection();
         imageSelection();
         pizzaSelection();
     }
 
+    /**
+     * Updates the pizza image based on the selected pizza type.
+     */
     @FXML
     private void imageSelection(){
         pizzaType.valueProperty().addListener(e -> {
@@ -100,6 +105,9 @@ public class ChicagoStyleController {
         });
     }
 
+    /**
+     * Disables the toppings list and navigation buttons.
+     */
     private void disableList(){
         backwardsChicago.setDisable(true);
         forwardsChicago.setDisable(true);
@@ -107,6 +115,9 @@ public class ChicagoStyleController {
         availableToppingsChicagoStyle.setStyle("-fx-background-color: lightgrey");
     }
 
+    /**
+     * Enables the toppings list and navigation buttons.
+     */
     private void enableList(){
         availableToppingsChicagoStyle.setDisable(false);
         backwardsChicago.setDisable(false);
@@ -114,6 +125,9 @@ public class ChicagoStyleController {
         availableToppingsChicagoStyle.setStyle("-fx-background-color: white");
     }
 
+    /**
+     * Handles the pizza type selection and updates the view accordingly.
+     */
     @FXML
     private void pizzaSelection(){
         pizzaType.setOnAction(e -> {
@@ -153,6 +167,9 @@ public class ChicagoStyleController {
         });
     }
 
+    /**
+     * Handles the size selection and updates the pizza size.
+     */
     @FXML
     private void sizeSelection(){
         group.selectedToggleProperty().addListener((observable, oldValue, newValue) -> {
@@ -172,6 +189,10 @@ public class ChicagoStyleController {
         });
     }
 
+    /**
+     * Builds the pizza based on the selected toppings and size.
+     * Updates the price and crust fields in the view.
+     */
     @FXML
     private void buildPizza(){
         pizza.getToppings().clear();
@@ -184,6 +205,9 @@ public class ChicagoStyleController {
         crustField.setText(pizza.getCrust().name());
     }
 
+    /**
+     * Moves the selected topping from the available list to the selected list.
+     */
     @FXML
     private void onForwards() {
         String selectedItem = availableToppingsChicagoStyle.getSelectionModel().getSelectedItem();
@@ -196,6 +220,9 @@ public class ChicagoStyleController {
 
     }
 
+    /**
+     * Moves the selected topping from the selected list to the available list.
+     */
     @FXML
     private void onBackwards() {
         String selectedItem = selectedToppingsChicagoStyle.getSelectionModel().getSelectedItem();
@@ -207,11 +234,18 @@ public class ChicagoStyleController {
         }
     }
 
-
+    /**
+     * Sets the main controller.
+     *
+     * @param startingMenuController the main controller
+     */
     public void setMainController(StartingMenuController startingMenuController) {
         this.startingMenuController = startingMenuController;
     }
 
+    /**
+     * Adds the current pizza to the order.
+     */
     @FXML
     public void onAddToOrder() {
         startingMenuController.addPizza(pizza);

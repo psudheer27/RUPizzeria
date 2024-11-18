@@ -10,6 +10,10 @@ import javafx.scene.control.TextField;
 
 import java.text.DecimalFormat;
 
+/**
+ * Controller for the Current Order View.
+ * This class handles the user interactions and updates the view accordingly.
+ */
 public class CurrentOrderController {
 
     @FXML
@@ -29,13 +33,22 @@ public class CurrentOrderController {
     private ObservableList<Pizza> items;
 
 
-
+    /**
+     * Sets the main controller.
+     * Initializes the current order view with the main controller's data.
+     *
+     * @param startingMenuController the main controller
+     */
     @FXML
     public void setMainController(StartingMenuController startingMenuController) {
         this.startingMenuController = startingMenuController;
         initializing();
     }
 
+    /**
+     * Initializes the current order view.
+     * Sets the order number, populates the order list, and updates the text fields.
+     */
     @FXML
     private void initializing() {
         orderNumberField.setText("" + startingMenuController.getOrderNumber());
@@ -48,10 +61,12 @@ public class CurrentOrderController {
 
         orderList.setItems(items);
         setTextFields();
-
-
     }
 
+    /**
+     * Removes the selected pizza from the order.
+     * Updates the order list and text fields.
+     */
     @FXML
     private void onRemovePizza() {
         startingMenuController.removePizza(orderList.getSelectionModel().getSelectedItem());
@@ -65,6 +80,10 @@ public class CurrentOrderController {
         setTextFields();
     }
 
+    /**
+     * Places the current order.
+     * Clears the order list and updates the text fields.
+     */
     @FXML
     private void onPlaceOrder() {
         startingMenuController.addOrder();
@@ -72,6 +91,10 @@ public class CurrentOrderController {
         setTextFields();
     }
 
+    /**
+     * Clears the current order.
+     * Removes all pizzas from the order list and updates the text fields.
+     */
     @FXML
     private void onClearOrder() {
         startingMenuController.clearPizzas();
@@ -80,6 +103,10 @@ public class CurrentOrderController {
         setTextFields();
     }
 
+    /**
+     * Updates the text fields for subtotal, sales tax, and order total.
+     * Calculates the values based on the current pizzas in the order.
+     */
     @FXML
     private void setTextFields() {
         double subtotal = 0;
@@ -95,13 +122,5 @@ public class CurrentOrderController {
         subtotalField.setText(String.valueOf(df.format(subtotal)));
         salesTaxField.setText(String.valueOf(df.format(salesTax)));
         orderTotalField.setText(String.valueOf(df.format(subtotal + salesTax)));
-
-
-
-
     }
-
-
-
-
 }
