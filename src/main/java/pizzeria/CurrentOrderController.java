@@ -7,6 +7,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
+import java.text.DecimalFormat;
+
 public class CurrentOrderController {
 
     @FXML
@@ -14,6 +16,9 @@ public class CurrentOrderController {
 
     @FXML
     public TextField orderNumberField;
+    public TextField subtotalField;
+    public TextField salesTaxField;
+    public TextField orderTotalField;
 
 
     private StartingMenuController startingMenuController;
@@ -35,24 +40,49 @@ public class CurrentOrderController {
 
         items = FXCollections.observableArrayList(startingMenuController.getPizzas());
         orderList.setItems(items);
+        setTextFields();
     }
 
     @FXML
     private void onRemovePizza() {
         startingMenuController.removePizza(orderList.getSelectionModel().getSelectedItem());
         orderList.getItems().remove(orderList.getSelectionModel().getSelectedItem());
+        setTextFields();
     }
 
     @FXML
     private void onPlaceOrder() {
         startingMenuController.addOrder();
         orderList.getItems().clear();
+        setTextFields();
     }
 
     @FXML
     private void onClearOrder() {
         startingMenuController.clearPizzas();
         orderList.getItems().clear();
+        setTextFields();
+    }
+
+    @FXML
+    private void setTextFields() {
+        double subtotal = 0;
+        double salesTax = 0;
+
+        for(Pizza pizza: startingMenuController.getPizzas()) {
+            subtotal += pizza.price();
+        }
+
+        salesTax = subtotal * 0.06625;
+
+        DecimalFormat df = new DecimalFormat("#.##");
+        subtotalField.setText(String.valueOf(df.format(subtotal)));
+        salesTaxField.setText(String.valueOf(df.format(salesTax)));
+        orderTotalField.setText(String.valueOf(df.format(subtotal + salesTax)));
+
+
+
+
     }
 
 

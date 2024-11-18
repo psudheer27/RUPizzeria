@@ -24,7 +24,7 @@
             <!-- Order Number Input -->
             <HBox spacing="10">
                 <Label style="-fx-font-size: 14px;" text="Order Number" />
-                <TextField fx:id="orderNumberField" promptText="Enter order number" />
+                <TextField fx:id="orderNumberField" />
             </HBox>
 
             <!-- Order Details Table -->
