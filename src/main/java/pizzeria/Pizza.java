@@ -1,5 +1,6 @@
 package pizzeria;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public abstract class Pizza {
@@ -42,35 +43,35 @@ public abstract class Pizza {
 
     @Override
     public String toString() {
-
-
         String str = "";
         if(crust == Crust.DeepDish)
-            str += "Deluxe(Chicago Style - " + crust.name() + "),";
+            str += "Deluxe (Chicago Style - " + crust.name() + "), ";
         else if(crust == Crust.Stuffed) {
-            str += "Meatzza(Chicago Style - " + crust.name() + "),";
+            str += "Meatzza (Chicago Style - " + crust.name() + "), ";
         } else if(crust == Crust.Brooklyn) {
-            str += "Deluxe(NY Style - " + crust.name() + "),";
+            str += "Deluxe (NY Style - " + crust.name() + "), ";
         } else if(crust == Crust.Thin) {
-            str += "BBQ Chicken(NY Style - " + crust.name() + "),";
+            str += "BBQ Chicken (NY Style - " + crust.name() + "), ";
         } else if(crust == Crust.Pan) {
             if(this instanceof BBQChicken)
-                str += "BBQ Chicken(Chicago Style - " + crust.name() + "),";
+                str += "BBQ Chicken (Chicago Style - " + crust.name() + "), ";
             else
-                str += "Build Your Own(Chicago Style - " + crust.name() + "),";
+                str += "Build Your Own (Chicago Style - " + crust.name() + "), ";
         } else if(crust == Crust.HandTossed) {
             if(this instanceof Meatzza)
-                str += "Meatzza(NY Style - " + crust.name() + "),";
+                str += "Meatzza (NY Style - " + crust.name() + "), ";
             else
-                str += "Build Your Own(NY Style - " + crust.name() + "),";
+                str += "Build Your Own (NY Style - " + crust.name() + "), ";
 
         }
 
-
+        str += "Toppings: ";
         for(Topping topping : toppings){
-            str += topping.name() + ",";
+            if(toppings.indexOf(topping) == toppings.size() - 1) str += topping.name()+ ", ";
+            else str += topping.name() + ", ";
         }
-        str += size.name() + ",$" + price();
+        DecimalFormat df = new DecimalFormat("#.##");
+        str += "Size : " + size.name() + ", Price: $" + df.format(price());
         return str;
     }
 }

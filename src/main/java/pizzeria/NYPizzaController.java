@@ -12,7 +12,7 @@ import java.text.DecimalFormat;
 public class NYPizzaController {
 
     @FXML
-    public Button addToOrderNY;
+    private Button addToOrderNY;
 
     @FXML
     private ListView<String> availableToppingsNYStyle, selectedToppingsNYStyle;
@@ -44,10 +44,7 @@ public class NYPizzaController {
 
     @FXML
     public void initialize() {
-        availableToppingsNYStyle.setDisable(true);
-        backwardsNY.setDisable(true);
-        forwardsNY.setDisable(true);
-        availableToppingsNYStyle.setStyle("-fx-background-color: lightgrey");
+        disableList();
         addToOrderNY.setDisable(true);
 
         ObservableList<String> listItems = FXCollections.observableArrayList("Sausage", "Pepperoni", "Green Pepper", "Onion", "Mushroom", "BBQ Chicken", "Provolone", "Cheddar", "Beef", "Ham", "Jalapenos", "Olives", "BananaPepper");
@@ -139,6 +136,7 @@ public class NYPizzaController {
             }
             else{
                 enableList();
+                addToOrderNY.setDisable(false);
                 availableToppingsNYStyle.setItems(listItems);
                 selectedToppingsNYStyle.getItems().clear();
                 pizza = pizzaFactory.createBuildYourOwn();
@@ -196,8 +194,6 @@ public class NYPizzaController {
         if(selectedItem != null) {
             selectedToppingsNYStyle.getItems().remove(selectedItem);
             availableToppingsNYStyle.getItems().add(selectedItem);
-            if(selectedToppingsNYStyle.getItems().isEmpty())
-                addToOrderNY.setDisable(true);
 
             buildPizza();
         }

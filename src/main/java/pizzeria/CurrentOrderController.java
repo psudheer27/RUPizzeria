@@ -17,9 +17,9 @@ public class CurrentOrderController {
 
     @FXML
     private TextField orderNumberField;
-    private TextField subtotalField;
-    private TextField salesTaxField;
-    private TextField orderTotalField;
+    public TextField subtotalField;
+    public TextField salesTaxField;
+    public TextField orderTotalField;
 
     @FXML
     private Button placeOrderButton;

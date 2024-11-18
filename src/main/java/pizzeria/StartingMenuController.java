@@ -85,19 +85,11 @@ public class StartingMenuController {
     private void openCurrentOrder() throws IOException {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("current-order.fxml"));
-
-
-
         Stage stage = new Stage();
         stage.setScene(new Scene(loader.load()));
-
         CurrentOrderController currentOrderController = loader.getController();
         currentOrderController.setMainController(this);
-
-
-
         stage.setTitle("Current Order");
-
         stage.show();
     }
 
@@ -136,17 +128,14 @@ public class StartingMenuController {
 
         orders.add(order);
 
-        for(Order currOrder : orders) {
-            System.out.println("start  " + currOrder.getPizza() + "number " + currOrder.getNumber());
-        }
-
-
-
         pizzas.clear();
-        System.out.println(getPizzas() +"clear");
         orderNumber++;
 
 
+    }
+
+    public void removeOrder(Order order) {
+        orders.remove(order);
     }
 
     public void clearOrders() {

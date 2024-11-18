@@ -51,13 +51,8 @@ public class ChicagoStyleController {
     @FXML
     public void initialize() {
 
-        availableToppingsChicagoStyle.setDisable(true);
-        backwardsChicago.setDisable(true);
-        forwardsChicago.setDisable(true);
-        availableToppingsChicagoStyle.setStyle("-fx-background-color: lightgrey");
+        disableList();
         addToOrderChicago.setDisable(true);
-
-
 
         ObservableList<String> listItems = FXCollections.observableArrayList("Sausage", "Pepperoni", "Green Pepper", "Onion", "Mushroom", "BBQ Chicken", "Provolone", "Cheddar", "Beef", "Ham", "Jalapenos", "Olives", "BananaPepper");
         availableToppingsChicagoStyle.setItems(listItems);
@@ -149,6 +144,7 @@ public class ChicagoStyleController {
             }
             else{
                 enableList();
+                addToOrderChicago.setDisable(false);
                 availableToppingsChicagoStyle.setItems(listItems);
                 selectedToppingsChicagoStyle.getItems().clear();
                 pizza = pizzaFactory.createBuildYourOwn();
@@ -186,10 +182,6 @@ public class ChicagoStyleController {
         DecimalFormat df = new DecimalFormat("#.##");
         priceField.setText(String.valueOf(df.format(pizza.price())));
         crustField.setText(pizza.getCrust().name());
-
-        if(pizzaType.getValue().equals("Deluxe")){
-
-        }
     }
 
     @FXML
@@ -210,8 +202,6 @@ public class ChicagoStyleController {
         if(selectedItem != null) {
             selectedToppingsChicagoStyle.getItems().remove(selectedItem);
             availableToppingsChicagoStyle.getItems().add(selectedItem);
-            if(selectedToppingsChicagoStyle.getItems().isEmpty())
-                addToOrderChicago.setDisable(true);
 
             buildPizza();
         }
