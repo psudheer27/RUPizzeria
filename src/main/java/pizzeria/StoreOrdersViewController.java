@@ -15,6 +15,7 @@ import java.text.DecimalFormat;
 /**
  * Controller for the Store Orders View.
  * This class handles the user interactions and updates the view accordingly.
+ * @author Pranav Sudheer and Pranav Komarla
  */
 public class StoreOrdersViewController {
 

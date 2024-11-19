@@ -4,6 +4,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 /**
+ * @author Pranav Sudheer and Pranav Komarla
  * Represents a pizza.
  * This abstract class defines the common properties and methods for all types of pizzas.
  * It includes the toppings, crust, and size of a pizza.

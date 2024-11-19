@@ -14,6 +14,7 @@ import java.util.ArrayList;
 /**
  * Controller for the Starting Menu View.
  * This class handles the user interactions and updates the view accordingly.
+ * @author Pranav Sudheer and Pranav Komarla
  */
 public class StartingMenuController {
     private ArrayList<Pizza> pizzas;

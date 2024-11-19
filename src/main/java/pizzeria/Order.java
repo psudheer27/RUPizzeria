@@ -3,6 +3,7 @@ package pizzeria;
 import java.util.ArrayList;
 
 /**
+ * @author Pranav Sudheer and Pranav Komarla
  * Represents an order.
  * This class defines the order number and the pizzas in the order.
  */
