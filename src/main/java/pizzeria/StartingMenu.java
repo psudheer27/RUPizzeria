@@ -8,9 +8,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
- * @author Pranav Sudheer and Pranav Komarla
  * The main class for the RUPizza application.
  * This class starts the application and displays the starting menu.
+ * @author Pranav Sudheer and Pranav Komarla
  */
 public class StartingMenu extends Application {
     @Override

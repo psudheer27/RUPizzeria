@@ -1,9 +1,9 @@
 package pizzeria;
 
 /**
- * @author Pranav Sudheer and Pranav Komarla
  * Represents a factory for creating New York-style pizzas.
  * This class implements the PizzaFactory interface and defines the specific pizzas that can be created in New York.
+ * @author Pranav Sudheer and Pranav Komarla
  */
 public class NYPizza implements PizzaFactory{
     /**

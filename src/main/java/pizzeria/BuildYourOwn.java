@@ -1,9 +1,10 @@
 package pizzeria;
 
 /**
- * @author Pranav Sudheer and Pranav Komarla
+ *
  * Represents a Build Your Own pizza.
  * This class extends the abstract Pizza class and calculates the price for a Build Your Own pizza based on size and toppings.
+ * @author Pranav Sudheer and Pranav Komarla
  */
 public class BuildYourOwn extends Pizza{
 

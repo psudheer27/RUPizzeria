@@ -1,9 +1,10 @@
 package pizzeria;
 
 /**
- * @author Pranav Sudheer and Pranav Komarla
+ *
  * Represents a BBQ Chicken pizza.
  * This class extends the abstract Pizza class and defines the specific toppings and price for a BBQ Chicken pizza.
+ * @author Pranav Sudheer and Pranav Komarla
  */
 public class BBQChicken extends Pizza{
 

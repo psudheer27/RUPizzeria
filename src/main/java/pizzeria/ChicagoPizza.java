@@ -1,10 +1,9 @@
 package pizzeria;
 
 /**
- * @author Pranav Sudheer and Pranav Komarla
- *
  * Represents a factory for creating Chicago-style pizzas.
  * This class implements the PizzaFactory interface and defines the specific pizzas that can be created in Chicago.
+ * @author Pranav Sudheer and Pranav Komarla
  */
 public class ChicagoPizza implements PizzaFactory{
 

@@ -14,9 +14,9 @@ import javafx.scene.image.ImageView;
 import java.text.DecimalFormat;
 
 /**
- * @author Pranav Sudheer and Pranav Komarla
  * Controller for the Chicago Style Pizza View.
  * This class handles the user interactions and updates the view accordingly.
+ * @author Pranav Sudheer and Pranav Komarla
  */
 public class ChicagoStyleController {
 

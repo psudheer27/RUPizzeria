@@ -1,9 +1,9 @@
 package pizzeria;
 
 /**
- * @author Pranav Sudheer and Pranav Komarla
  * Represents a Deluxe pizza.
  * This class extends the abstract Pizza class and defines the specific toppings and price for a Deluxe pizza.
+ * @author Pranav Sudheer and Pranav Komarla
  */
 public class Deluxe extends Pizza{
 
