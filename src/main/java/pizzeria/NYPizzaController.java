@@ -29,16 +29,16 @@ public class NYPizzaController {
     private RadioButton small, medium, large;
 
     @FXML
-    ToggleGroup group = new ToggleGroup();
+    private ToggleGroup group = new ToggleGroup();
 
     @FXML
-    ComboBox<String> pizzaType = new ComboBox<String>();
+    private ComboBox<String> pizzaType = new ComboBox<String>();
 
     @FXML
-    TextField priceField, crustField;
+    private TextField priceField, crustField;
 
     @FXML
-    ImageView imageView;
+    private ImageView imageView;
 
     PizzaFactory pizzaFactory = new NYPizza();
     Pizza pizza;

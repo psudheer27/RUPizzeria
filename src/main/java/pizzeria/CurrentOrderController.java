@@ -21,10 +21,7 @@ public class CurrentOrderController {
     private ListView<Pizza> orderList;
 
     @FXML
-    private TextField orderNumberField;
-    public TextField subtotalField;
-    public TextField salesTaxField;
-    public TextField orderTotalField;
+    private TextField orderNumberField, subtotalField, salesTaxField, orderTotalField;
 
     @FXML
     private Button placeOrderButton;

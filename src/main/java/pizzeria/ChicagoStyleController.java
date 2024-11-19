@@ -21,7 +21,7 @@ import java.text.DecimalFormat;
 public class ChicagoStyleController {
 
     @FXML
-    public Button addToOrderChicago;
+    private Button addToOrderChicago;
 
     @FXML
     private ListView<String> availableToppingsChicagoStyle, selectedToppingsChicagoStyle;
@@ -33,16 +33,16 @@ public class ChicagoStyleController {
     private RadioButton small, medium, large;
 
     @FXML
-    ToggleGroup group = new ToggleGroup();
+    private ToggleGroup group = new ToggleGroup();
 
     @FXML
-    ComboBox<String> pizzaType = new ComboBox<String>();
+    private ComboBox<String> pizzaType = new ComboBox<String>();
 
     @FXML
-    ImageView imageView;
+    private ImageView imageView;
 
     @FXML
-    TextField priceField, crustField;
+    private TextField priceField, crustField;
 
     PizzaFactory pizzaFactory = new ChicagoPizza();
     Pizza pizza;

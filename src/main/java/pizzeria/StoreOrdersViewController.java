@@ -20,14 +20,16 @@ import java.text.DecimalFormat;
 public class StoreOrdersViewController {
 
     @FXML
-    public ComboBox<String> orderNumberComboBox;
-    public TextField orderTotalField;
+    private ComboBox<String> orderNumberComboBox;
 
     @FXML
-    public Button cancelOrderButton, exportOrdersButton;
+    private TextField orderTotalField;
 
     @FXML
-    public ListView<Pizza> orderListView;
+    private Button cancelOrderButton, exportOrdersButton;
+
+    @FXML
+    private ListView<Pizza> orderListView;
 
     private ObservableList<Pizza> items;
     private StartingMenuController startingMenuController;
@@ -147,7 +149,7 @@ public class StoreOrdersViewController {
                     }
 
                 } catch (IOException e) {
-                    System.err.println("Error writing to file: " + e.getMessage());
+                    throw new RuntimeException("Error writing to file", e);
                 }
             }
         });

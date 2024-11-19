@@ -23,7 +23,7 @@ public class StartingMenuController {
     private int orderNumber;
 
     @FXML
-    public Button chicagoStyleButton, nyStyleButton, ordersPlacedButton, currentOrderButton;
+    private Button chicagoStyleButton, nyStyleButton, ordersPlacedButton, currentOrderButton;
 
     /**
      * Initializes the controller.
@@ -44,7 +44,7 @@ public class StartingMenuController {
      */
     @FXML
     private void openChicagoStyle() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("chicagoStyle.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("chicagoStyleView.fxml"));
 
         Stage stage = new Stage();
         stage.setScene(new Scene(loader.load()));
@@ -113,7 +113,7 @@ public class StartingMenuController {
     @FXML
     private void openCurrentOrder() throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("current-order.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("current-order-view.fxml"));
         Stage stage = new Stage();
         stage.setScene(new Scene(loader.load()));
         CurrentOrderController currentOrderController = loader.getController();

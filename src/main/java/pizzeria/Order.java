@@ -20,7 +20,6 @@ public class Order {
     public Order(int number, ArrayList<Pizza> pizzas) {
         this.number = number;
         this.pizzas = pizzas;
-        System.out.println(pizzas);
     }
 
     /**
